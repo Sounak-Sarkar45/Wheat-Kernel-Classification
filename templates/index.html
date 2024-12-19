@@ -1,25 +1,95 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wheat Kernel Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('static/images/Whole-Grain-Wheat-Kernels-Closeup.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            color: white;
+            text-shadow: 2px 2px 5px black;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 2.5em;
+        }
+        form {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            margin: auto;
+            margin-top: 20px;
+            color: white;
+            text-align: left; /* Align text to the left */
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input {
+            width: 100%; /* Ensure inputs are full width of the container */
+            max-width: 350px; /* Limit maximum width for better layout */
+            padding: 8px; /* Adjust padding for consistent spacing */
+            margin: auto; /* Center the input fields */
+            margin-bottom: 15px; /* Spacing below each field */
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box; /* Ensures padding is included in width */
+        }
+        button {
+            background: #ff9800;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            display: block; /* Makes button align properly */
+            margin: 20px auto 0; /* Centers the button */
+        }
+        button:hover {
+            background: #e68a00;
+        }
+        h3 {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.5em;
+        }
+    </style>
 </head>
 <body>
     <h2>Wheat Kernel Predictor</h2>
     <form action="/predict" method="post">
         <label for="area">Area:</label>
-        <input type="text" id="area" name="area" required><br><br>
+        <input type="text" id="area" name="area" required>
+
         <label for="perimeter">Perimeter:</label>
-        <input type="text" id="perimeter" name="perimeter" required><br><br>
+        <input type="text" id="perimeter" name="perimeter" required>
+
         <label for="compactness">Compactness:</label>
-        <input type="text" id="compactness" name="compactness" required><br><br>
+        <input type="text" id="compactness" name="compactness" required>
+
         <label for="kernel_length">Kernel Length:</label>
-        <input type="text" id="kernel_length" name="kernel_length" required><br><br>
+        <input type="text" id="kernel_length" name="kernel_length" required>
+
         <label for="kernel_width">Kernel Width:</label>
-        <input type="text" id="kernel_width" name="kernel_width" required><br><br>
+        <input type="text" id="kernel_width" name="kernel_width" required>
+
         <label for="coeff">Asymmetric Coefficient:</label>
-        <input type="text" id="coeff" name="coeff" required><br><br>
+        <input type="text" id="coeff" name="coeff" required>
+
         <label for="kernel_groove_length">Kernel Groove Length:</label>
-        <input type="text" id="kernel_groove_length" name="kernel_groove_length" required><br><br>
+        <input type="text" id="kernel_groove_length" name="kernel_groove_length" required>
+
         <button type="submit">Predict</button>
     </form>
     <h3>{{ prediction_text }}</h3>
