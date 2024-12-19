@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wheat Kernel Predictor</title>
+</head>
+<body>
+    <h2>Wheat Kernel Predictor</h2>
+    <form action="/predict" method="post">
+        <label for="area">Area:</label>
+        <input type="text" id="area" name="area" required><br><br>
+        <label for="perimeter">Perimeter:</label>
+        <input type="text" id="perimeter" name="perimeter" required><br><br>
+        <label for="compactness">Compactness:</label>
+        <input type="text" id="compactness" name="compactness" required><br><br>
+        <label for="kernel_length">Kernel Length:</label>
+        <input type="text" id="kernel_length" name="kernel_length" required><br><br>
+        <label for="kernel_width">Kernel Width:</label>
+        <input type="text" id="kernel_width" name="kernel_width" required><br><br>
+        <label for="coeff">Asymmetric Coefficient:</label>
+        <input type="text" id="coeff" name="coeff" required><br><br>
+        <label for="kernel_groove_length">Kernel Groove Length:</label>
+        <input type="text" id="kernel_groove_length" name="kernel_groove_length" required><br><br>
+        <button type="submit">Predict</button>
+    </form>
+    <h3>{{ prediction_text }}</h3>
+</body>
+</html>
