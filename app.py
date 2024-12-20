@@ -6,8 +6,8 @@ from flask import Flask, request, jsonify, render_template
 app = Flask(__name__)
 
 # Load models
-lda = joblib.load('D:\Environments\Projects\Wheat-Kernel-Classification\experiments\lda_transformer.joblib')
-model = pickle.load(open('D:\Environments\Projects\Wheat-Kernel-Classification\experiments\clf.pkl', 'rb'))
+lda = joblib.load('\home\ubuntu\experiments\lda_transformer.joblib')
+model = pickle.load(open('\home\ubuntu\experiments\clf.pkl', 'rb'))
 
 @app.route('/')
 def home():
@@ -51,4 +51,4 @@ def predict():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0',port=8080)
