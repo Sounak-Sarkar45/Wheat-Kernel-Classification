@@ -6,8 +6,8 @@ from flask import Flask, request, jsonify, render_template
 app = Flask(__name__)
 
 # Load models
-lda = joblib.load('\home\ubuntu\experiments\lda_transformer.joblib')
-model = pickle.load(open('\home\ubuntu\experiments\clf.pkl', 'rb'))
+model = pickle.load(open('\home\ubuntu\experiments\svc.pkl', 'rb'))
+# model = pickle.load(open('D:/Environments/Projects/Wheat-Kernel-Classification/experiments/svc.pkl', 'rb'))
 
 @app.route('/')
 def home():
@@ -30,11 +30,10 @@ def predict():
             float(request.form['kernel_groove_length'])
         ]
         # Reshape and transform input
-        attr = np.array(inputs).reshape(1, -1)
-        scaled_attr = lda.transform(attr)
+        attr = np.array([inputs])
 
         # Make prediction
-        predictions = model.predict(scaled_attr)
+        predictions = model.predict(attr)
         if predictions[0] == 1:
             output = "Kama"
         elif predictions[0] == 2:
@@ -52,3 +51,4 @@ def predict():
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',port=8080)
+    # app.run(debug=True)
